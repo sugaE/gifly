@@ -1,0 +1,6 @@
+framework module Pods_Gifly_GiflyUITests {
+  umbrella header "Pods-Gifly-GiflyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
