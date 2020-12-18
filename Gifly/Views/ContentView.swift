@@ -6,32 +6,37 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ContentView: View {
-    @State private var selection: Tab = .featured
+    @State private var selection: Tab = .entrance
     
     enum Tab {
-        case featured
-        case list
+        case entrance
+        case settings
     }
 
     var body: some View {
         TabView(selection: $selection,
             content:  {
-                CategoryHome()
-                    .tag(Tab.featured)
+                Entrance()
+                    .tag(Tab.entrance)
                     .tabItem {
-                        Label("Featured", systemImage: "star")
+                        Label("Compose", systemImage: "pencil.and.outline")
                     }
                 
                 LandmarkList()
-                    .tag(Tab.list)
+                    .tag(Tab.settings)
                     .tabItem {
-                        Label("List", systemImage: "list.bullet")
+                        Label("Settings", systemImage: "gearshape")
                     }
                 
             })
-        
+            .onAppear {
+                PHPhotoLibrary.requestAuthorization { (status) in
+                   // No crash
+                }
+            }
     }
 }
 

@@ -10,6 +10,12 @@
 		093B7A6275F9441D06EAE1D7 /* Pods_Gifly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2449E201A986C847AEBD921 /* Pods_Gifly.framework */; };
 		099423335B5EDE110941019E /* Pods_Gifly_GiflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE22601A72122420546FB8A /* Pods_Gifly_GiflyUITests.framework */; };
 		248AD90B7D851544B28ECFA0 /* Pods_GiflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0661279649877CE8525702 /* Pods_GiflyTests.framework */; };
+		A2693605258B39FF002DECA2 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693604258B39FF002DECA2 /* EditView.swift */; };
+		A2693616258B4B74002DECA2 /* NavigationTrailling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693615258B4B74002DECA2 /* NavigationTrailling.swift */; };
+		A2693626258B7A39002DECA2 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693625258B7A39002DECA2 /* UIImageExtensions.swift */; };
+		A2A6C04E258B84E000DE1273 /* ImageAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */; };
+		A2C70877258BAE1A00121A3D /* ImagesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C70876258BAE1A00121A3D /* ImagesPickerView.swift */; };
+		A2C70880258C946200121A3D /* Statics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7087F258C946200121A3D /* Statics.swift */; };
 		A2E25D2F2589322600015420 /* GiflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25D2E2589322600015420 /* GiflyApp.swift */; };
 		A2E25D312589322600015420 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25D302589322600015420 /* ContentView.swift */; };
 		A2E25D332589322800015420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E25D322589322800015420 /* Assets.xcassets */; };
@@ -47,6 +53,10 @@
 		A2E25E63258A3EE300015420 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25E5F258A3EE300015420 /* PageViewController.swift */; };
 		A2E25E64258A3EE300015420 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25E60258A3EE300015420 /* PageView.swift */; };
 		A2E25E9D258A51AC00015420 /* hikeData.json in Resources */ = {isa = PBXBuildFile; fileRef = A2E25E9C258A51AC00015420 /* hikeData.json */; };
+		A2E25EA3258A562600015420 /* Entrance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25EA2258A562600015420 /* Entrance.swift */; };
+		A2E25EA8258A56C400015420 /* ContentViewBak.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25EA7258A56C400015420 /* ContentViewBak.swift */; };
+		A2E25EB5258A718B00015420 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25EB4258A718A00015420 /* ImagePickerView.swift */; };
+		A2E25EC1258A87B800015420 /* PHPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25EC0258A87B800015420 /* PHPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +83,12 @@
 		89EC7E77168B5B677872E5DA /* Pods-Gifly-GiflyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gifly-GiflyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gifly-GiflyUITests/Pods-Gifly-GiflyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C2BC8318B7CB3DABFC2DC63 /* Pods-Gifly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gifly.debug.xcconfig"; path = "Target Support Files/Pods-Gifly/Pods-Gifly.debug.xcconfig"; sourceTree = "<group>"; };
 		A2449E201A986C847AEBD921 /* Pods_Gifly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gifly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2693604258B39FF002DECA2 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		A2693615258B4B74002DECA2 /* NavigationTrailling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTrailling.swift; sourceTree = "<group>"; };
+		A2693625258B7A39002DECA2 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnimated.swift; sourceTree = "<group>"; };
+		A2C70876258BAE1A00121A3D /* ImagesPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesPickerView.swift; sourceTree = "<group>"; };
+		A2C7087F258C946200121A3D /* Statics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statics.swift; sourceTree = "<group>"; };
 		A2E25D2B2589322600015420 /* Gifly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gifly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E25D2E2589322600015420 /* GiflyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiflyApp.swift; sourceTree = "<group>"; };
 		A2E25D302589322600015420 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +132,10 @@
 		A2E25E5F258A3EE300015420 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		A2E25E60258A3EE300015420 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		A2E25E9C258A51AC00015420 /* hikeData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hikeData.json; sourceTree = "<group>"; };
+		A2E25EA2258A562600015420 /* Entrance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrance.swift; sourceTree = "<group>"; };
+		A2E25EA7258A56C400015420 /* ContentViewBak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewBak.swift; sourceTree = "<group>"; };
+		A2E25EB4258A718A00015420 /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		A2E25EC0258A87B800015420 /* PHPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHPickerView.swift; sourceTree = "<group>"; };
 		AF0661279649877CE8525702 /* Pods_GiflyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiflyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1AA0DBE11AD466FACBA257 /* Pods-GiflyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiflyTests.release.xcconfig"; path = "Target Support Files/Pods-GiflyTests/Pods-GiflyTests.release.xcconfig"; sourceTree = "<group>"; };
 		E449A6B5DB951747B4696482 /* Pods-Gifly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gifly.release.xcconfig"; path = "Target Support Files/Pods-Gifly/Pods-Gifly.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +192,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A2693609258B4A32002DECA2 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				A2693604258B39FF002DECA2 /* EditView.swift */,
+				A2693615258B4B74002DECA2 /* NavigationTrailling.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		A269362E258B7CFF002DECA2 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				A2C70876258BAE1A00121A3D /* ImagesPickerView.swift */,
+				A2E25EB4258A718A00015420 /* ImagePickerView.swift */,
+				A2E25E5C258A3EE300015420 /* PageView */,
+				A2E25E48258A353B00015420 /* Profiles */,
+				A2E25E1F258A234600015420 /* Hikes */,
+				A2E25EA7258A56C400015420 /* ContentViewBak.swift */,
+				A2E25DA9258A08F000015420 /* Helpers */,
+				A2E25DA5258A08D300015420 /* Landmarks */,
+				A2E25DEF258A18CB00015420 /* Badges */,
+				A2E25E42258A346C00015420 /* Categories */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		A2C7087E258C944E00121A3D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A2693625258B7A39002DECA2 /* UIImageExtensions.swift */,
+				A2C7087F258C946200121A3D /* Statics.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A2E25D222589322600015420 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +252,7 @@
 		A2E25D2D2589322600015420 /* Gifly */ = {
 			isa = PBXGroup;
 			children = (
+				A2C7087E258C944E00121A3D /* Helpers */,
 				A2E25D852589EF3000015420 /* Resource */,
 				A2E25D2E2589322600015420 /* GiflyApp.swift */,
 				A2E25D7D2589EF1100015420 /* Views */,
@@ -237,14 +293,11 @@
 		A2E25D7D2589EF1100015420 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A2E25E5C258A3EE300015420 /* PageView */,
-				A2E25E48258A353B00015420 /* Profiles */,
-				A2E25E1F258A234600015420 /* Hikes */,
+				A269362E258B7CFF002DECA2 /* Tutorial */,
+				A2E25EB9258A71B800015420 /* Representables */,
+				A2E25EA1258A55F900015420 /* Home */,
 				A2E25D302589322600015420 /* ContentView.swift */,
-				A2E25DA9258A08F000015420 /* Helpers */,
-				A2E25DA5258A08D300015420 /* Landmarks */,
-				A2E25DEF258A18CB00015420 /* Badges */,
-				A2E25E42258A346C00015420 /* Categories */,
+				A2693609258B4A32002DECA2 /* Editor */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -341,6 +394,23 @@
 				A2E25E60258A3EE300015420 /* PageView.swift */,
 			);
 			path = PageView;
+			sourceTree = "<group>";
+		};
+		A2E25EA1258A55F900015420 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A2E25EA2258A562600015420 /* Entrance.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A2E25EB9258A71B800015420 /* Representables */ = {
+			isa = PBXGroup;
+			children = (
+				A2E25EC0258A87B800015420 /* PHPickerView.swift */,
+				A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */,
+			);
+			path = Representables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -584,17 +654,22 @@
 			files = (
 				A2E25E1B258A1EF200015420 /* Hike.swift in Sources */,
 				A2E25E64258A3EE300015420 /* PageView.swift in Sources */,
+				A2E25EC1258A87B800015420 /* PHPickerView.swift in Sources */,
 				A2E25D312589322600015420 /* ContentView.swift in Sources */,
 				A2E25E61258A3EE300015420 /* FeatureCard.swift in Sources */,
 				A2E25E4D258A353B00015420 /* ProfileEditor.swift in Sources */,
 				A2E25D742589EA7800015420 /* Landmark.swift in Sources */,
+				A2E25EB5258A718B00015420 /* ImagePickerView.swift in Sources */,
 				A2E25E44258A34C600015420 /* Profile.swift in Sources */,
+				A2A6C04E258B84E000DE1273 /* ImageAnimated.swift in Sources */,
 				A2E25E4E258A353B00015420 /* ProfileHost.swift in Sources */,
 				A2E25D6A2589DFAA00015420 /* MapView.swift in Sources */,
 				A2E25E39258A2D9900015420 /* CategoryRow.swift in Sources */,
 				A2E25E34258A2A6900015420 /* CategoryHome.swift in Sources */,
 				A2E25E27258A234600015420 /* HikeView.swift in Sources */,
 				A2E25DA1258A07DF00015420 /* FavoriteButton.swift in Sources */,
+				A2C70877258BAE1A00121A3D /* ImagesPickerView.swift in Sources */,
+				A2693626258B7A39002DECA2 /* UIImageExtensions.swift in Sources */,
 				A2E25DDB258A0FA500015420 /* HexagonParameters.swift in Sources */,
 				A2E25DE5258A154800015420 /* BadgeSymbol.swift in Sources */,
 				A2E25E63258A3EE300015420 /* PageViewController.swift in Sources */,
@@ -602,12 +677,17 @@
 				A2E25DEA258A164C00015420 /* Badge.swift in Sources */,
 				A2E25D9C2589F6E300015420 /* LandmarkDetail.swift in Sources */,
 				A2E25E4C258A353B00015420 /* ProfileSummary.swift in Sources */,
+				A2E25EA8258A56C400015420 /* ContentViewBak.swift in Sources */,
 				A2E25DE0258A10B000015420 /* BadgeBackground.swift in Sources */,
+				A2693605258B39FF002DECA2 /* EditView.swift in Sources */,
 				A2E25E62258A3EE300015420 /* PageControl.swift in Sources */,
 				A2E25E26258A234600015420 /* HikeDetail.swift in Sources */,
 				A2E25D2F2589322600015420 /* GiflyApp.swift in Sources */,
 				A2E25E24258A234600015420 /* GraphCapsule.swift in Sources */,
+				A2E25EA3258A562600015420 /* Entrance.swift in Sources */,
 				A2E25D652589DD6900015420 /* CircleImage.swift in Sources */,
+				A2693616258B4B74002DECA2 /* NavigationTrailling.swift in Sources */,
+				A2C70880258C946200121A3D /* Statics.swift in Sources */,
 				A2E25E53258A357E00015420 /* HikeBadge.swift in Sources */,
 				A2E25D8F2589EFB400015420 /* LandmarkRow.swift in Sources */,
 				A2E25D792589ECB600015420 /* ModelData.swift in Sources */,
