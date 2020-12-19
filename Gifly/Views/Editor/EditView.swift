@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct EditView: View {
-    var type: PHPickerFilter
+    var type: PHPickerFilter?
     
     @EnvironmentObject var md: ModelData
     @State private var isImagePickerDisplay = false
@@ -18,7 +18,7 @@ struct EditView: View {
      
     
     var body: some View {
-        let selectedImages = md.frames ?? []
+        let selectedImages = md.frames
         
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
             
@@ -30,6 +30,7 @@ struct EditView: View {
                 ZStack {
                     HStack {
                         if (selectedImages.count > 0) {
+                            // todo
                             ForEach (selectedImages.prefix(8), id:\.self) { n in
                                 Image(uiImage: n)
                                     .resizable()
@@ -67,18 +68,12 @@ struct EditView: View {
             
             GeometryReader { geo in
                 
-                if selectedImages.count > 0 && !md.isGenerating {
-    //                guard let selectedImage = selectedImage else { return }
-    //                Image(uiImage: selectedImages[0])
-    //                    .resizable()
-    //                    .scaledToFill()
+                if selectedImages.count > 0  {
                     ImageAnimated(
-                        imageSize: geo.size,
-                        images: selectedImages,
-                        duration: Double(selectedImages.count / md.parameters.fps))
-//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                        imageSize: geo.size
+//                        md: md
+                    )
+                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                 } else {
                     Button(action: {
                         self.isImagePickerDisplay = true
@@ -88,17 +83,11 @@ struct EditView: View {
                             Image(systemName: "plus.viewfinder")
                                 .font(.system(size: 100, weight: .light))
                                 .padding()
-                              
-    //                        ImageAnimated(
-    //                            imageSize: CGSize(width: 200, height: 200), imageNames: ["1","2","3"]
-    //                            )
-    //                            .frame(width: 200, height: 200, alignment: .center)
-
-                            Text("ReSelect \(type.hashValue)")
+                            Text("ReSelect")
 //                            Spacer()
                         }
+                        .frame(width: geo.size.width, height: geo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     })
-                    .frame(width: geo.size.width, height: geo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                     .sheet(isPresented: $isImagePickerDisplay, content: {
                         PHPickerView(filter: type)
@@ -133,10 +122,17 @@ struct EditView: View {
         .navigationBarTitleDisplayMode(.inline)
         
         .onAppear(perform: {
-//            self.isImagePickerDisplay = true
+            print("[INFO][UI][EditView]onAppear")
+            self.isImagePickerDisplay = true
+            md.reload(oftype: type)
         })
         .onDisappear(perform: {
+            print("[INFO][UI][EditView]onDisappear")
             self.isImagePickerDisplay = false
+        })
+        .onChange(of: md.parameters, perform: { value in
+            print("[INFO]fps:from \(md.parameters.fps), to\(value.fps)")
+            Handles.handleChangeParameters(of: md)
         })
     }
 }

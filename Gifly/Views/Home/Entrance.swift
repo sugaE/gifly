@@ -9,57 +9,38 @@ import SwiftUI
 import PhotosUI
 
 struct Entrance: View {
-     
-    
     var body: some View {
-        GeometryReader { geo in
-            let width_half = geo.size.width / 2 - 40
-            
-            NavigationView {
-                
-                VStack {
-                    Image("Author")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    
-                    HStack {
-                        NavigationLink(destination: EditView(type: PHPickerFilter.livePhotos)) {
-                            VStack {
-                                Image(systemName: "livephoto")
-                                    .font(.system(size: width_half / 2))
-                                Text("Livephoto to Gif")
-                                    .font(.title3)
-                            }
-                            .frame(width: width_half, height: width_half, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .background(Color.yellow)
+        NavigationView {
+            GeometryReader { geo in
+                let width_half = geo.size.width / 2 - 20
+                ScrollView(showsIndicators: false){
+                    VStack {
+                        Image("Author")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                         
+                        LazyVGrid(columns: [
+                            GridItem(.adaptive(minimum: width_half)),
+//                            GridItem(.flexible()),
+                        ], spacing: 10) { //HStack
+                            BtnCategory(type: .livePhotos, icon: "livephoto", label: "Livephoto to Gif")
+                            BtnCategory(type: .videos, icon: "video", label: "Video to Gif")
+                            BtnCategory(type: .images, icon: "infinity.circle", label: "Gif to Gif")
                         }
-                        
-                        
-                        NavigationLink(destination: EditView(type: PHPickerFilter.videos)) {
-                            VStack {
-                                Image(systemName: "video")
-                                    .font(.system(size: width_half / 2))
-                                Text("Video to Gif")
-                                    .font(.title3)
-                            }
-                            .frame(width: width_half, height: width_half, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .background(Color.yellow)
-                            }
-//
+                        .padding(10)
                     }
-                     
                     
-                } 
-                .navigationTitle("Hi, again")
-                
+                }
             }
+            .navigationTitle("Hi, again")
         }
-        
     }
 }
 
 struct Entrance_Previews: PreviewProvider {
     static var previews: some View {
         Entrance()
+            .environmentObject(ModelData())
     }
 }

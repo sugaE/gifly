@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 @main
 struct GiflyApp: App {
@@ -13,9 +14,17 @@ struct GiflyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            Entrance()
                 .environmentObject(modelData)
-        }
+        } 
     }
-
+    
+    
 }
+
+//func subscribe() -> Void {
+//    let lastPostLabelSubscriber = Subscribers.Assign(object: lastPostLabel, keyPath: \.text)
+//    blogPostPublisher.subscribe(lastPostLabelSubscriber)
+//}
+

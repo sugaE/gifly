@@ -12,8 +12,11 @@ import SwiftUI
 struct ImageAnimated: UIViewRepresentable {
     var imageSize: CGSize
 //    let imageNames: [String]?
-    @State var images: [UIImage]?
-    let duration: Double//? = 0.5
+//    @State var images: [UIImage]?
+//    @State var duration: Double//? = 0.5
+    @EnvironmentObject var md: ModelData
+    
+    
     
 //    private var previousSize: CGSize
 //    private var previousImages: CGSize
@@ -48,18 +51,25 @@ struct ImageAnimated: UIViewRepresentable {
         animationImageView.autoresizesSubviews = true
         animationImageView.contentMode = .scaleAspectFit
 
-        animationImageView.image = UIImage.animatedImage(with: images!, duration: duration)
+        
+        
+        let duration = Double(md.frames.count) / Double(md.parameters.fps)
+        animationImageView.image = UIImage.animatedImage(with: md.frames, duration: duration)
 //            ?.resizableImage(withCapInsets: .zero, resizingMode: .tile)
         
         containerView.addSubview(animationImageView)
-        
+//
         return containerView
     }
 
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<ImageAnimated>) {
 //        guard let image = images?[0] else { return }
 //        imageSize = image.size
-        print("[INFO] [View Update] updateImageAnimated, images:\(images?.count ?? 0)")
+        print("[INFO] [View Update] updateImageAnimated, images:\(md.frames.count), mdimg: \(md.frames.count)")
+        
+        let imgView = uiView.subviews.first as! UIImageView
+        let duration = Double(md.frames.count) / Double(md.parameters.fps)
+        imgView.image = UIImage.animatedImage(with: md.frames, duration: duration)
         
         
     }

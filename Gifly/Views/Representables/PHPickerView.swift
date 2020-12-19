@@ -70,6 +70,7 @@ struct PHPickerView: UIViewControllerRepresentable {
                 return
             }
             
+            // TODO: if fails, then try itemProvider
             let fetchResults = PHAsset.fetchAssets(withLocalIdentifiers: identifiers, options: nil)
             if fetchResults.count == 0 {
                 print("[Fail Authorization] lack access to certain photos")
@@ -85,13 +86,13 @@ struct PHPickerView: UIViewControllerRepresentable {
                 break
             case .image:
                 if fetchResult.mediaSubtypes == .photoLive {
-                    //todo
                     Helper.loadLivephotoIntoModel(from: fetchResult, modelData: self.phpicker.modelData)
                     return
-                } else {
-                    //todo
+                } else if fetchResult.mediaSubtypes.rawValue == 64 { // gif hopefully
+                    Helper.loadGifIntoModel(from: fetchResult, modelData: self.phpicker.modelData)
                     return
                 }
+                
             default:
                 print("[Warning] unsupported media type: \(fetchResult.mediaType)")
                 return

@@ -32,8 +32,8 @@ struct NavigationTrailling: View {
 //                        images.append(img)
 //                    }
 //                }
-                if let images = md.frames, images.count > 0 {
-                    UIImage.animatedGif(from: images, parameters: md.parameters)
+                if md.frames.count > 0 {
+                    Helper.saveGif(from: md.frames, parameters: md.parameters)
                 }
                 
             }

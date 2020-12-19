@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Parameter: Hashable, Codable {
+struct Parameter: Hashable, Codable, Equatable {
     
     var fps: Int = Constants.FPS_DEFAULT
      

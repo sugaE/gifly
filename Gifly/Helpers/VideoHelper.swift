@@ -8,12 +8,9 @@
 import Foundation
 import Photos
 import UIKit
-//import SwiftUI
-import Combine
-import MobileCoreServices
- 
+
     
-struct Helper {
+extension Helper {
 //    var modelData: ModelData
      
     static func loadVideoIntoModel(from: PHAsset, modelData: ModelData) -> Void {
@@ -33,115 +30,18 @@ struct Helper {
             
         }
     }
-    
-    static func loadLivephotoIntoModel(from: PHAsset, modelData: ModelData) -> Void {
-    
-        let options = PHLivePhotoRequestOptions()
-        options.deliveryMode = .fastFormat
-        options.isNetworkAccessAllowed = true
-        
-        PHAssetResource.assetResources(for: from).forEach { (resource) in
-            if resource.type == .pairedVideo {
-                
-                let buffer = NSMutableData()
-                let option = PHAssetResourceRequestOptions()
-                option.isNetworkAccessAllowed = true
-                PHAssetResourceManager.default().requestData(for: resource, options: option) { (chunk) in
-                    buffer.append(chunk)
-                } completionHandler: { (err) in
-                    saveAssetResource(resource: resource, buffer: buffer, maybeError: err) { (url, err) in
-                        if let err = err {
-                            print("[ERROR] saveAssetResource \(err)")
-                            return
-                        }
-                        
-                        let avasset = AVAsset.init(url: url)
-                        modelData.video = avasset
-                        generateImagesFromVideoIntoModel(modelData: modelData)
-                        
-                    }
-                }
-            }
-           
-        }
-        
-    }
-    
-    static func fileExtension(for dataUTI: String) -> String? {
-        guard let fileExtension = UTTypeCopyPreferredTagWithClass(dataUTI as CFString, kUTTagClassFilenameExtension) else {
-            return nil
-        }
-
-        return String(fileExtension.takeRetainedValue())
-    }
-    
-    
-    static func saveAssetResource(
-        resource: PHAssetResource,
-        buffer: NSMutableData?,
-        maybeError: Error?,
-        completionHandler: @escaping (URL, Error?) -> Void
-        ) -> Void {
-        
-        guard let inDirectory = generateFolderForLivePhotoResources() else { return }
-        
-        guard maybeError == nil else {
-            print("Could not request data for resource: \(resource), error: \(String(describing: maybeError))")
-            return
-        }
-
-        let maybeExt = fileExtension(for: resource.uniformTypeIdentifier)
-
-        guard let ext = maybeExt else {
-            return
-        }
-
-        guard var fileUrl = inDirectory.appendingPathComponent(NSUUID().uuidString) else {
-            print("file url error")
-            return
-        }
-
-        fileUrl = fileUrl.appendingPathExtension(ext as String)
-
-        if let buffer = buffer, buffer.write(to: fileUrl, atomically: true) {
-            print("Saved resource form buffer \(resource) to filepath: \(String(describing: fileUrl))")
-            completionHandler(fileUrl, nil)
-        } else {
-            PHAssetResourceManager.default().writeData(for: resource, toFile: fileUrl, options: nil) { (error) in
-                print("Saved resource directly \(resource) to filepath: \(String(describing: fileUrl))")
-                completionHandler(fileUrl, error)
-            }
-        }
-    }
-
-    static func generateFolderForLivePhotoResources() -> NSURL? {
-        let photoDir = NSURL(
-            // NB: Files in NSTemporaryDirectory() are automatically cleaned up by the OS
-            fileURLWithPath: NSTemporaryDirectory(),
-            isDirectory: true
-            ).appendingPathComponent(NSUUID().uuidString)
-
-        let fileManager = FileManager()
-        // we need to specify type as ()? as otherwise the compiler generates a warning
-        let success : ()? = try? fileManager.createDirectory(
-            at: photoDir!,
-            withIntermediateDirectories: true,
-            attributes: nil
-        )
-
-        return success != nil ? photoDir! as NSURL : nil
-    }
-   
-    
-    
+     
     
     static func generateImagesFromVideoIntoModel(modelData: ModelData) -> Void {
         DispatchQueue.main.async {
-            modelData.frames = []
             modelData.isGenerating = true
+            modelData.frames = []
         }
         
-        guard let avasset = modelData.video else { return }
+        guard let avasset = modelData.video else {
+            Helper.cancelGeneratingStatus(of: modelData)
+            return
+        }
         let imageGenerator = AVAssetImageGenerator(asset: avasset)
         imageGenerator.appliesPreferredTrackTransform = true
         imageGenerator.requestedTimeToleranceBefore = CMTime.zero
@@ -150,21 +50,26 @@ struct Helper {
 //                var actualTime = CMTime.zero
         var times = [NSValue]()
         let fps = modelData.parameters.fps
-        for i in 0..<Int(avasset.duration.seconds) * fps {
+        for i in 0...Int(avasset.duration.seconds  * Double(fps)) {
             let timetmp = CMTimeMake(value: Int64(i), timescale: Int32(fps))
             times.append(NSValue(time: timetmp))
         }
         var timeslen = times.count
         var images = [UIImage]()
-         
+        
+        imageGenerator.cancelAllCGImageGeneration()
         imageGenerator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { (cmtime1, cgImage, cmtime2, result, error) in
             
-            if let error = error {
-                print("[ERR] generateCGImagesAsynchronously: \(error)")
-                timeslen -= 1
-            }
             print("[INFO] image \(images.count): req:\(cmtime1.seconds) get: \(cmtime2.seconds)")
-            guard let cgImage = cgImage, result == AVAssetImageGenerator.Result.succeeded else { return }
+            guard let cgImage = cgImage, result == AVAssetImageGenerator.Result.succeeded else {
+                if let error = error {
+                    print("[ERR] generateCGImagesAsynchronously: \(error)")
+                    timeslen -= 1
+                }
+                
+                Helper.cancelGeneratingStatus(of: modelData)
+                return
+            }
             images.append(UIImage(cgImage: cgImage))
 
             if timeslen == images.count {
@@ -174,6 +79,10 @@ struct Helper {
                     modelData.isGenerating = false
                 }
                 
+            } else {
+                
+                print("[Warning] no frames for video")
+                Helper.cancelGeneratingStatus(of: modelData)
             }
         })
     }
