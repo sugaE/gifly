@@ -8,7 +8,6 @@
 import Foundation
 
 
-//struct statics2 {
-//
-//}
-let FRAME_COUNT = 10.0
+struct Constants {
+    static let FPS_DEFAULT: Int = 10
+}

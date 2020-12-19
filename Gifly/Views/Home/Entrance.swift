@@ -23,7 +23,7 @@ struct Entrance: View {
                         .aspectRatio(contentMode: .fit)
                     
                     HStack {
-                        NavigationLink(destination: EditView()) {
+                        NavigationLink(destination: EditView(type: PHPickerFilter.livePhotos)) {
                             VStack {
                                 Image(systemName: "livephoto")
                                     .font(.system(size: width_half / 2))
@@ -33,6 +33,18 @@ struct Entrance: View {
                             .frame(width: width_half, height: width_half, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .background(Color.yellow)
                         }
+                        
+                        
+                        NavigationLink(destination: EditView(type: PHPickerFilter.videos)) {
+                            VStack {
+                                Image(systemName: "video")
+                                    .font(.system(size: width_half / 2))
+                                Text("Video to Gif")
+                                    .font(.title3)
+                            }
+                            .frame(width: width_half, height: width_half, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .background(Color.yellow)
+                            }
 //
                     }
                      

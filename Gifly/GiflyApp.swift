@@ -17,4 +17,5 @@ struct GiflyApp: App {
                 .environmentObject(modelData)
         }
     }
+
 }

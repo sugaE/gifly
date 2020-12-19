@@ -9,7 +9,11 @@ import SwiftUI
 import UIKit
 
 struct NavigationTrailling: View {
-    let images: [UIImage]?
+    @EnvironmentObject var md: ModelData
+    
+//    let images: [UIImage]?
+//    let parameters: Parameter
+    
     
     var body: some View {
         HStack {
@@ -28,8 +32,8 @@ struct NavigationTrailling: View {
 //                        images.append(img)
 //                    }
 //                }
-                if let images = images, images.count > 0 {
-                    UIImage.animatedGif(from: images)
+                if let images = md.frames, images.count > 0 {
+                    UIImage.animatedGif(from: images, parameters: md.parameters)
                 }
                 
             }
@@ -43,6 +47,6 @@ struct NavigationTrailling: View {
 
 struct NavigationTrailling_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationTrailling(images: [])
+        NavigationTrailling()
     }
 }

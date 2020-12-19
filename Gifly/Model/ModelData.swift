@@ -7,10 +7,20 @@
 
 import Foundation
 import Combine
+import Photos
+import UIKit
 
 final class ModelData: ObservableObject {
     @Published var landmarks: [Landmark] = load("landmarkData.json")
     @Published var profile = Profile.default
+    
+    @Published var parameters: Parameter = Parameter.default
+//    @Published var phassets: [PHAsset]?
+//    @Published var phasset: PHAsset?
+    var video: AVAsset?
+    @Published var isGenerating = false
+    @Published var frames: [UIImage]?
+    
     
     var hikes: [Hike] = load("hikeData.json")
     
@@ -22,6 +32,10 @@ final class ModelData: ObservableObject {
         Dictionary(grouping: landmarks, by: {
             $0.category.rawValue
         })
+    }
+    
+    func reload () -> Void {
+        parameters = Parameter.default
     }
     
 }

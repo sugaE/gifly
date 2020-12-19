@@ -13,12 +13,12 @@ import PhotosUI
 
 
 extension UIImage {
-    static func animatedGif(from images: [UIImage]) -> URL? {
+    static func animatedGif(from images: [UIImage], parameters: Parameter) -> URL? {
         let fileProperties: CFDictionary = [
             kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0],
         ]  as CFDictionary
         let frameProperties: CFDictionary = [
-            kCGImagePropertyGIFDictionary as String: [(kCGImagePropertyGIFUnclampedDelayTime as String): 1.0 / FRAME_COUNT],
+            kCGImagePropertyGIFDictionary as String: [(kCGImagePropertyGIFUnclampedDelayTime as String): 1.0 / Double(parameters.fps)],
 //            kCGImagePropertyOrientation as String: 6
 //            Double(selectedImages.count) / FRAME_COUNT)
         ] as CFDictionary

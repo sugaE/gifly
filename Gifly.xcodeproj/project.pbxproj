@@ -15,7 +15,10 @@
 		A2693626258B7A39002DECA2 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693625258B7A39002DECA2 /* UIImageExtensions.swift */; };
 		A2A6C04E258B84E000DE1273 /* ImageAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */; };
 		A2C70877258BAE1A00121A3D /* ImagesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C70876258BAE1A00121A3D /* ImagesPickerView.swift */; };
-		A2C70880258C946200121A3D /* Statics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7087F258C946200121A3D /* Statics.swift */; };
+		A2C70880258C946200121A3D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7087F258C946200121A3D /* Constants.swift */; };
+		A2C7088E258CD7C200121A3D /* BtnFPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7088D258CD7C200121A3D /* BtnFPS.swift */; };
+		A2C70893258CE27B00121A3D /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C70892258CE27B00121A3D /* Parameter.swift */; };
+		A2C70898258D061000121A3D /* VideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C70897258D061000121A3D /* VideoHelper.swift */; };
 		A2E25D2F2589322600015420 /* GiflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25D2E2589322600015420 /* GiflyApp.swift */; };
 		A2E25D312589322600015420 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25D302589322600015420 /* ContentView.swift */; };
 		A2E25D332589322800015420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E25D322589322800015420 /* Assets.xcassets */; };
@@ -88,7 +91,10 @@
 		A2693625258B7A39002DECA2 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnimated.swift; sourceTree = "<group>"; };
 		A2C70876258BAE1A00121A3D /* ImagesPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesPickerView.swift; sourceTree = "<group>"; };
-		A2C7087F258C946200121A3D /* Statics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statics.swift; sourceTree = "<group>"; };
+		A2C7087F258C946200121A3D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A2C7088D258CD7C200121A3D /* BtnFPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnFPS.swift; sourceTree = "<group>"; };
+		A2C70892258CE27B00121A3D /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
+		A2C70897258D061000121A3D /* VideoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHelper.swift; sourceTree = "<group>"; };
 		A2E25D2B2589322600015420 /* Gifly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gifly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E25D2E2589322600015420 /* GiflyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiflyApp.swift; sourceTree = "<group>"; };
 		A2E25D302589322600015420 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -197,6 +203,7 @@
 			children = (
 				A2693604258B39FF002DECA2 /* EditView.swift */,
 				A2693615258B4B74002DECA2 /* NavigationTrailling.swift */,
+				A2C7088D258CD7C200121A3D /* BtnFPS.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -222,7 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				A2693625258B7A39002DECA2 /* UIImageExtensions.swift */,
-				A2C7087F258C946200121A3D /* Statics.swift */,
+				A2C7087F258C946200121A3D /* Constants.swift */,
+				A2C70897258D061000121A3D /* VideoHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -309,6 +317,7 @@
 				A2E25E1A258A1EF200015420 /* Hike.swift */,
 				A2E25D732589EA7800015420 /* Landmark.swift */,
 				A2E25D782589ECB600015420 /* ModelData.swift */,
+				A2C70892258CE27B00121A3D /* Parameter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -659,6 +668,7 @@
 				A2E25E61258A3EE300015420 /* FeatureCard.swift in Sources */,
 				A2E25E4D258A353B00015420 /* ProfileEditor.swift in Sources */,
 				A2E25D742589EA7800015420 /* Landmark.swift in Sources */,
+				A2C70898258D061000121A3D /* VideoHelper.swift in Sources */,
 				A2E25EB5258A718B00015420 /* ImagePickerView.swift in Sources */,
 				A2E25E44258A34C600015420 /* Profile.swift in Sources */,
 				A2A6C04E258B84E000DE1273 /* ImageAnimated.swift in Sources */,
@@ -682,17 +692,19 @@
 				A2693605258B39FF002DECA2 /* EditView.swift in Sources */,
 				A2E25E62258A3EE300015420 /* PageControl.swift in Sources */,
 				A2E25E26258A234600015420 /* HikeDetail.swift in Sources */,
+				A2C7088E258CD7C200121A3D /* BtnFPS.swift in Sources */,
 				A2E25D2F2589322600015420 /* GiflyApp.swift in Sources */,
 				A2E25E24258A234600015420 /* GraphCapsule.swift in Sources */,
 				A2E25EA3258A562600015420 /* Entrance.swift in Sources */,
 				A2E25D652589DD6900015420 /* CircleImage.swift in Sources */,
 				A2693616258B4B74002DECA2 /* NavigationTrailling.swift in Sources */,
-				A2C70880258C946200121A3D /* Statics.swift in Sources */,
+				A2C70880258C946200121A3D /* Constants.swift in Sources */,
 				A2E25E53258A357E00015420 /* HikeBadge.swift in Sources */,
 				A2E25D8F2589EFB400015420 /* LandmarkRow.swift in Sources */,
 				A2E25D792589ECB600015420 /* ModelData.swift in Sources */,
 				A2E25E3E258A2E4200015420 /* CategoryItem.swift in Sources */,
 				A2E25E25258A234600015420 /* HikeGraph.swift in Sources */,
+				A2C70893258CE27B00121A3D /* Parameter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

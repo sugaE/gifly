@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditView: View {
-    var type: String = "Livephoto"
+    var type: PHPickerFilter
+    
+    @EnvironmentObject var md: ModelData
     @State private var isImagePickerDisplay = false
-    @State private var isImagePickerFinished = false
-    @State private var selectedImages: [UIImage]  = []
+//    @State private var isImagePickerFinished = false
+//    @State private var selectedImages: [UIImage]  = []
      
     
     var body: some View {
+        let selectedImages = md.frames ?? []
+        
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
             
             HStack {
@@ -62,7 +67,7 @@ struct EditView: View {
             
             GeometryReader { geo in
                 
-                if selectedImages.count > 0 && isImagePickerFinished {
+                if selectedImages.count > 0 && !md.isGenerating {
     //                guard let selectedImage = selectedImage else { return }
     //                Image(uiImage: selectedImages[0])
     //                    .resizable()
@@ -70,7 +75,7 @@ struct EditView: View {
                     ImageAnimated(
                         imageSize: geo.size,
                         images: selectedImages,
-                        duration: Double(selectedImages.count) / FRAME_COUNT)
+                        duration: Double(selectedImages.count / md.parameters.fps))
 //                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         
                         .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
@@ -89,13 +94,15 @@ struct EditView: View {
     //                            )
     //                            .frame(width: 200, height: 200, alignment: .center)
 
-                            Text("ReSelect \(type)")
+                            Text("ReSelect \(type.hashValue)")
 //                            Spacer()
                         }
                     })
                     .frame(width: geo.size.width, height: geo.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    
                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                    .sheet(isPresented: $isImagePickerDisplay, content: {
+                        PHPickerView(filter: type)
+                    })
                     
                 }
                 
@@ -112,12 +119,7 @@ struct EditView: View {
                 }
                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                 
-//                VStack {
-//                    Image(systemName: "textbox")
-//                        .font(.system(size: 40, weight: .light))
-//                        .frame(width: 60, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                    Text("Text")
-//                }
+                BtnFPS()
                 
             }
             .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -125,12 +127,9 @@ struct EditView: View {
   
         }
 
-        .sheet(isPresented: $isImagePickerDisplay, content: {
-            PHPickerView(image: $selectedImages, isFinished: $isImagePickerFinished)
-        })
         
         .navigationTitle("Edit")
-        .navigationBarItems(trailing: NavigationTrailling(images: selectedImages))
+        .navigationBarItems(trailing: NavigationTrailling())
         .navigationBarTitleDisplayMode(.inline)
         
         .onAppear(perform: {
@@ -151,7 +150,7 @@ struct EditView_Previews: PreviewProvider {
         ], id: \.self)
         {
             deviceName in
-            EditView()//originalImage: UIImage(named: "Author")!
+            EditView(type: .videos)//originalImage: UIImage(named: "Author")!
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
