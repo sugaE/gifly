@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MinimapSlide: View {
-    @State var selectedImages: [UIImage]
+    @Binding var selectedImages: [UIImage]
+    
     var body: some View {
         
         HStack {
@@ -54,6 +55,6 @@ struct MinimapSlide: View {
 
 struct MinimapSlide_Previews: PreviewProvider {
     static var previews: some View {
-        MinimapSlide(selectedImages: ModelData().frames)
+        MinimapSlide(selectedImages: Binding.constant(ModelData().frames))
     }
 }

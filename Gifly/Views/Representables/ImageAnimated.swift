@@ -19,9 +19,7 @@ struct ImageAnimated: UIViewRepresentable {
 //    @State var images: [UIImage]?
 //    @State var duration: Double//? = 0.5
     @EnvironmentObject var md: ModelData
-    
-    let x = RandomClass()
-    
+      
 //    private var previousSize: CGSize
 //    private var previousImages: CGSize
 
@@ -63,6 +61,7 @@ struct ImageAnimated: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<ImageAnimated>) {
 //        guard let image = images?[0] else { return }
 //        imageSize = image.size
+        
         if md.isGenerating {
             return
         }

@@ -9,13 +9,8 @@ import SwiftUI
 
 struct EditorDisplay: View {
     @EnvironmentObject var md: ModelData
-    @Environment(\.presentationMode) var presentationMode
-     
-    @State private var draggingAt: Alignment? = .none
-    @State private var draggingDelta: CGPoint = .zero
+      
     @State private var geosz: CGSize = .zero
-    
-    @State private var savedCrop: CGRect?
       
     private var calcrct: Binding<CGRect?> { Binding (
         get: { getCalcsz() },
@@ -39,6 +34,7 @@ struct EditorDisplay: View {
                         ImageAnimated(
                             calcsz: crop //CGRect(x: 10, y: 10, width: 300, height: 200)
                         )
+                        .environmentObject(md)
                         .frame(width: crop.width, height: crop.height, alignment: .center)
                         .clipShape(
                             Rectangle()
@@ -47,7 +43,7 @@ struct EditorDisplay: View {
                         .overlay(Circle().fill(Color.yellow).frame(width: 10, height: 10))
                         .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                         .transformEffect(transformComputed.wrappedValue)
-                    } 
+                    }
                     .transformEffect(CGAffineTransform(translationX: crop.midX - calcrct.midX, y: crop.midY - calcrct.midY))
                     .border(Color.blue)
                 

@@ -42,8 +42,8 @@ struct BtnFPS: View {
 func getBtn(data: ModelData, withFps: Int) -> ActionSheet.Button {
     return ActionSheet.Button.default(Text("\(withFps) FPS"), action: {
 //        data.parametersPrevious.fps = data.parameters.fps
-        data.parameters.fps = withFps
-//        Helper.generateImagesFromVideoIntoModel(modelData: data)
+        data.parameters.fps = withFps 
+        Handles.handleChangeParameters(of: data)
     })
 }
  

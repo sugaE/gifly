@@ -18,11 +18,10 @@ struct EditView: View {
      
     
     var body: some View {
-        let selectedImages = md.frames
         
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0){
             // use first value
-            MinimapSlide(selectedImages: selectedImages)
+            MinimapSlide(selectedImages: $md.frames)
                 
             if md.frames.count > 0  {
                 
@@ -58,10 +57,10 @@ struct EditView: View {
             print("[INFO][UI][EditView]onDisappear")
             self.isImagePickerDisplay = false
         })
-        .onChange(of: md.parameters, perform: { value in
-            print("[INFO]fps:from \(md.parameters.fps), to\(value.fps)")
-            Handles.handleChangeParameters(of: md)
-        })
+//        .onChange(of: md.parameters.fps, perform: { [md.parameters.fps] fps in
+//            print("[INFO]fps:from \(md.parameters.fps), to\(fps)")
+//            Handles.handleChangeParameters(of: md)
+//        })
     }
 }
 

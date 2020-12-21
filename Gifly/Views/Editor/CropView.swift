@@ -26,6 +26,7 @@ struct CropView: View {
                         ImageAnimated(
                             calcsz: calcrct! //CGRect(x: 10, y: 10, width: 300, height: 200)
                         )
+                        .environmentObject(md)
                         .frame(width: calcrct!.width, height: calcrct!.height, alignment: .center)
                         .border(Color.black)
                         .overlay(

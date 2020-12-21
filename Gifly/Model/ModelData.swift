@@ -55,8 +55,8 @@ final class ModelData: ObservableObject {
         
    
         // todo comment test! data!
-//        ["1","2","3"]
-        ["default"]
+        ["1","2","3"]
+//        ["default"]
             .forEach { imageName in
             if let img = UIImage(named: imageName) {
                 frames.append(img)
