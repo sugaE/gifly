@@ -15,7 +15,7 @@ struct Entrance: View {
                 let width_half = geo.size.width / 2 - 20
                 ScrollView(showsIndicators: false){
                     VStack {
-                        Image("Author")
+                        Image("default")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)

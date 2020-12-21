@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BtnFPS: View {
     @EnvironmentObject var md: ModelData
-    @State var isPresent = false
+    @State private var isPresent: Bool = false
     
     var body: some View {
         Button(action: {

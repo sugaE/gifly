@@ -10,9 +10,14 @@
 		093B7A6275F9441D06EAE1D7 /* Pods_Gifly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2449E201A986C847AEBD921 /* Pods_Gifly.framework */; };
 		099423335B5EDE110941019E /* Pods_Gifly_GiflyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE22601A72122420546FB8A /* Pods_Gifly_GiflyUITests.framework */; };
 		248AD90B7D851544B28ECFA0 /* Pods_GiflyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF0661279649877CE8525702 /* Pods_GiflyTests.framework */; };
+		A24C15E7258F1290003F1BC6 /* MinimapSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C15E6258F1290003F1BC6 /* MinimapSlide.swift */; };
+		A24C15EC258F1379003F1BC6 /* EditorDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C15EB258F1379003F1BC6 /* EditorDisplay.swift */; };
+		A24C15F1258F1A85003F1BC6 /* BtnReselect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C15F0258F1A85003F1BC6 /* BtnReselect.swift */; };
 		A2693605258B39FF002DECA2 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693604258B39FF002DECA2 /* EditView.swift */; };
 		A2693616258B4B74002DECA2 /* NavigationTrailling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693615258B4B74002DECA2 /* NavigationTrailling.swift */; };
-		A2693626258B7A39002DECA2 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693625258B7A39002DECA2 /* ImageHelper.swift */; };
+		A2693626258B7A39002DECA2 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2693625258B7A39002DECA2 /* UIImageExt.swift */; };
+		A283A283258F38E5006FE0A1 /* WillAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283A282258F38E5006FE0A1 /* WillAppear.swift */; };
+		A283A288258FD7A0006FE0A1 /* GeometryReaderExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A283A287258FD7A0006FE0A1 /* GeometryReaderExt.swift */; };
 		A2A6C04E258B84E000DE1273 /* ImageAnimated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */; };
 		A2C70880258C946200121A3D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7087F258C946200121A3D /* Constants.swift */; };
 		A2C7088E258CD7C200121A3D /* BtnFPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C7088D258CD7C200121A3D /* BtnFPS.swift */; };
@@ -24,6 +29,8 @@
 		A2C708B3258E13C000121A3D /* LivephotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C708B2258E13C000121A3D /* LivephotoHelper.swift */; };
 		A2C708D1258E452B00121A3D /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C708D0258E452B00121A3D /* Categories.swift */; };
 		A2C708D7258E5CE300121A3D /* Handles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C708D6258E5CE300121A3D /* Handles.swift */; };
+		A2C708DF258E6C8000121A3D /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C708DE258E6C8000121A3D /* CropView.swift */; };
+		A2C708E4258E6CB100121A3D /* BtnCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C708E3258E6CB100121A3D /* BtnCrop.swift */; };
 		A2E25D2F2589322600015420 /* GiflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E25D2E2589322600015420 /* GiflyApp.swift */; };
 		A2E25D332589322800015420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E25D322589322800015420 /* Assets.xcassets */; };
 		A2E25D362589322800015420 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E25D352589322800015420 /* Preview Assets.xcassets */; };
@@ -58,9 +65,14 @@
 		89EC7E77168B5B677872E5DA /* Pods-Gifly-GiflyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gifly-GiflyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Gifly-GiflyUITests/Pods-Gifly-GiflyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C2BC8318B7CB3DABFC2DC63 /* Pods-Gifly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gifly.debug.xcconfig"; path = "Target Support Files/Pods-Gifly/Pods-Gifly.debug.xcconfig"; sourceTree = "<group>"; };
 		A2449E201A986C847AEBD921 /* Pods_Gifly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gifly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24C15E6258F1290003F1BC6 /* MinimapSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimapSlide.swift; sourceTree = "<group>"; };
+		A24C15EB258F1379003F1BC6 /* EditorDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorDisplay.swift; sourceTree = "<group>"; };
+		A24C15F0258F1A85003F1BC6 /* BtnReselect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnReselect.swift; sourceTree = "<group>"; };
 		A2693604258B39FF002DECA2 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		A2693615258B4B74002DECA2 /* NavigationTrailling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTrailling.swift; sourceTree = "<group>"; };
-		A2693625258B7A39002DECA2 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		A2693625258B7A39002DECA2 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
+		A283A282258F38E5006FE0A1 /* WillAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillAppear.swift; sourceTree = "<group>"; };
+		A283A287258FD7A0006FE0A1 /* GeometryReaderExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderExt.swift; sourceTree = "<group>"; };
 		A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnimated.swift; sourceTree = "<group>"; };
 		A2C7087F258C946200121A3D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A2C7088D258CD7C200121A3D /* BtnFPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnFPS.swift; sourceTree = "<group>"; };
@@ -72,6 +84,8 @@
 		A2C708B2258E13C000121A3D /* LivephotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivephotoHelper.swift; sourceTree = "<group>"; };
 		A2C708D0258E452B00121A3D /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		A2C708D6258E5CE300121A3D /* Handles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handles.swift; sourceTree = "<group>"; };
+		A2C708DE258E6C8000121A3D /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
+		A2C708E3258E6CB100121A3D /* BtnCrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnCrop.swift; sourceTree = "<group>"; };
 		A2E25D2B2589322600015420 /* Gifly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gifly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E25D2E2589322600015420 /* GiflyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiflyApp.swift; sourceTree = "<group>"; };
 		A2E25D322589322800015420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,8 +160,13 @@
 			isa = PBXGroup;
 			children = (
 				A2693604258B39FF002DECA2 /* EditView.swift */,
+				A2C708E3258E6CB100121A3D /* BtnCrop.swift */,
+				A24C15EB258F1379003F1BC6 /* EditorDisplay.swift */,
 				A2693615258B4B74002DECA2 /* NavigationTrailling.swift */,
 				A2C7088D258CD7C200121A3D /* BtnFPS.swift */,
+				A2C708DE258E6C8000121A3D /* CropView.swift */,
+				A24C15E6258F1290003F1BC6 /* MinimapSlide.swift */,
+				A24C15F0258F1A85003F1BC6 /* BtnReselect.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -155,13 +174,14 @@
 		A2C7087E258C944E00121A3D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A2693625258B7A39002DECA2 /* ImageHelper.swift */,
+				A2693625258B7A39002DECA2 /* UIImageExt.swift */,
 				A2C7087F258C946200121A3D /* Constants.swift */,
 				A2C70897258D061000121A3D /* VideoHelper.swift */,
 				A2C708B2258E13C000121A3D /* LivephotoHelper.swift */,
 				A2C708A8258E12F700121A3D /* GifHelper.swift */,
 				A2C708AD258E139F00121A3D /* Helper.swift */,
 				A2C708D6258E5CE300121A3D /* Handles.swift */,
+				A283A287258FD7A0006FE0A1 /* GeometryReaderExt.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -262,6 +282,7 @@
 			children = (
 				A2E25EC0258A87B800015420 /* PHPickerView.swift */,
 				A2A6C04D258B84E000DE1273 /* ImageAnimated.swift */,
+				A283A282258F38E5006FE0A1 /* WillAppear.swift */,
 			);
 			path = Representables;
 			sourceTree = "<group>";
@@ -506,12 +527,19 @@
 				A2E25EC1258A87B800015420 /* PHPickerView.swift in Sources */,
 				A2C708A9258E12F700121A3D /* GifHelper.swift in Sources */,
 				A2C70898258D061000121A3D /* VideoHelper.swift in Sources */,
+				A24C15E7258F1290003F1BC6 /* MinimapSlide.swift in Sources */,
 				A2C708A4258DFD5A00121A3D /* BtnCategory.swift in Sources */,
+				A24C15F1258F1A85003F1BC6 /* BtnReselect.swift in Sources */,
 				A2C708D1258E452B00121A3D /* Categories.swift in Sources */,
+				A2C708DF258E6C8000121A3D /* CropView.swift in Sources */,
+				A24C15EC258F1379003F1BC6 /* EditorDisplay.swift in Sources */,
 				A2A6C04E258B84E000DE1273 /* ImageAnimated.swift in Sources */,
 				A2C708AE258E139F00121A3D /* Helper.swift in Sources */,
-				A2693626258B7A39002DECA2 /* ImageHelper.swift in Sources */,
+				A2C708E4258E6CB100121A3D /* BtnCrop.swift in Sources */,
+				A283A283258F38E5006FE0A1 /* WillAppear.swift in Sources */,
+				A2693626258B7A39002DECA2 /* UIImageExt.swift in Sources */,
 				A2C708B3258E13C000121A3D /* LivephotoHelper.swift in Sources */,
+				A283A288258FD7A0006FE0A1 /* GeometryReaderExt.swift in Sources */,
 				A2693605258B39FF002DECA2 /* EditView.swift in Sources */,
 				A2C7088E258CD7C200121A3D /* BtnFPS.swift in Sources */,
 				A2E25D2F2589322600015420 /* GiflyApp.swift in Sources */,

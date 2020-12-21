@@ -9,9 +9,10 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Parameter: Hashable, Codable, Equatable {
+struct Parameter: Codable, Equatable {
     
     var fps: Int = Constants.FPS_DEFAULT
+    var crop: CGRect?
      
 //    var username: String
 //    var prefersNotifications = true
