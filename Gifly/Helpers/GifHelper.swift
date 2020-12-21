@@ -11,7 +11,10 @@ import MobileCoreServices
 import UIKit
 
 extension Helper {
-    static func saveGif(from images: [UIImage], parameters: Parameter) -> Void {
+    static func saveGif(from: ModelData) -> Void {
+        let images = from.frames,
+            parameters: Parameter = from.parameters,
+            cropOriginal: CGRect = from.parametersPrevious.crop!
         let fileProperties: CFDictionary = [
             kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0],
         ]  as CFDictionary
@@ -31,13 +34,26 @@ extension Helper {
         if let url = fileURL as CFURL? {
             if let destination = CGImageDestinationCreateWithURL(url, kUTTypeGIF, images.count, nil) {
                 CGImageDestinationSetProperties(destination, fileProperties)
+                
                 for image in images {
-                    if let cgImage = image.cgImage {
+                    if let resized = image.image(byDrawingImage: image, inRect: cropOriginal),
+                       var cgImage = resized.cgImage {
+                        // Perform cropping in Core Graphics
+                        if let crop = parameters.crop { 
+                            guard let cutImageRef: CGImage = cgImage.cropping(to: crop)
+                            else {
+                                print("Failed to finalize the image destination")
+                                continue
+                            }
+                            cgImage = cutImageRef
+                        }
+                        
                         CGImageDestinationAddImage(destination, cgImage, frameProperties)
                     }
                 }
                 if !CGImageDestinationFinalize(destination) {
                     print("Failed to finalize the image destination")
+                    return
                 }
                 
                 PHPhotoLibrary.shared().performChanges({
@@ -52,6 +68,8 @@ extension Helper {
                 }
                 
                 print("Url = \(fileURL)")
+            } else {
+                print("Failed to create the image destination")
             }
         }
         

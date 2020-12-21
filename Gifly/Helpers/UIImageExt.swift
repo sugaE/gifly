@@ -13,8 +13,8 @@ import PhotosUI
 extension UIImage {
    
     func image(byDrawingImage image: UIImage, inRect rect: CGRect) -> UIImage! {
-        UIGraphicsBeginImageContext(size)
-        draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        UIGraphicsBeginImageContext(rect.size)
+//        draw(in: CGRect(x: 0, y: 0, width: rect.width, height: rect.height))
         image.draw(in: rect)
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

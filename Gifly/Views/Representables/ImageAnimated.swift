@@ -45,13 +45,12 @@ struct ImageAnimated: UIViewRepresentable {
         imgView.backgroundColor = .black
          
         let duration = Double(images.count) / Double(md.parameters.fps)
-//        imgView.image = UIImage.animatedImage(with: images, duration: duration)
+        imgView.image = UIImage.animatedImage(with: images, duration: duration)
         
-        imgView.animationImages = images
-        imgView.animationDuration = duration
-        imgView.startAnimating()
-         
-//            ?.resizableImage(withCapInsets: .zero, resizingMode: .tile)
+        // images orientation wrong!
+//        imgView.animationImages = images
+//        imgView.animationDuration = duration
+//        imgView.startAnimating()
         
         containerView.addSubview(imgView)
 //
@@ -69,13 +68,14 @@ struct ImageAnimated: UIViewRepresentable {
         
         let imgView = uiView.subviews.first as! UIImageView
 //        imgView.image = UIImage.animatedImage(with: md.frames, duration: duration)
-        if md.frames.count != imgView.animationImages?.count {
-            imgView.animationImages = md.frames
-        }
+//        if md.frames.count != imgView.animationImages?.count {
+//            imgView.animationImages = md.frames
+//        }
         
         let duration = Double(md.frames.count) / Double(md.parameters.fps)
-        if duration != imgView.animationDuration {
-            imgView.animationDuration = duration
+        if md.frames.count != imgView.animationImages?.count || duration != imgView.animationDuration {
+//            imgView.animationDuration = duration
+           imgView.image = UIImage.animatedImage(with: md.frames, duration: duration)
         }
          
         if !self.calcsz.equalTo(imgView.frame)  {

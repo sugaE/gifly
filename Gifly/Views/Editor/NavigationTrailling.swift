@@ -33,7 +33,7 @@ struct NavigationTrailling: View {
 //                    }
 //                }
                 if md.frames.count > 0 {
-                    Helper.saveGif(from: md.frames, parameters: md.parameters)
+                    Helper.saveGif(from: md)
                 }
                 
             }
